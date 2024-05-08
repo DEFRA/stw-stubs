@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  stub-api:
+    build:
+      context: src
+      dockerfile: ./STW.StubApi.Presentation/Dockerfile
+    ports:
+      - "6000:8080"
