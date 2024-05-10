@@ -7,9 +7,10 @@ public class NotificationValidator : INotificationValidator
 {
     private const string SchemaPath = "Services/Notification/Schemas/notification.json";
 
-    public bool IsValid(string notification)
+    public async Task<bool> IsValidAsync(string notification)
     {
-        var schema = JsonSchema.FromFileAsync(SchemaPath).Result;
+        var schema = await JsonSchema.FromFileAsync(SchemaPath);
+
         var result = schema.Validate(notification, new JsonSchemaValidatorSettings
         {
             PropertyStringComparer = StringComparer.InvariantCultureIgnoreCase
