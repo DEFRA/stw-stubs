@@ -16,26 +16,26 @@ public class NotificationValidatorTests
     }
 
     [TestMethod]
-    public async Task IsValid_ReturnsTrue_WhenNotificationSatisfiesTheSchema()
+    public void IsValid_ReturnsTrue_WhenNotificationSatisfiesTheSchema()
     {
         // Arrange
-        const string notification = "{ \"type\": \"CHEDPP\" }";
+        const string notification = "{ \"type\": \"CHEDPP\", \"status\": \"SUBMITTED\" }";
 
         // Act
-        var result = await _systemUnderTest.IsValidAsync(notification);
+        var result = _systemUnderTest.IsValid(notification);
 
         // Assert
         result.Should().BeTrue();
     }
 
     [TestMethod]
-    public async Task IsValid_ReturnsFalse_WhenNotificationDoesNotSatisfyTheSchema()
+    public void IsValid_ReturnsFalse_WhenNotificationDoesNotSatisfyTheSchema()
     {
         // Arrange
-        const string notification = "{ \"type\": \"CHEDPP\", \"partOne\": { \"CustomsReferenceNumber\": \"\" } }";
+        const string notification = "{ \"type\": \"CHEDPP\", \"status\": \"unknown\" }";
 
         // Act
-        var result = await _systemUnderTest.IsValidAsync(notification);
+        var result = _systemUnderTest.IsValid(notification);
 
         // Assert
         result.Should().BeFalse();

@@ -35,7 +35,7 @@ public class CreateNotificationTests
     public async Task CreateNotifications_ReturnsCreatedStatusWithReferenceNumber_WhenNotificationIsValid()
     {
         // Arrange
-        const string notification = "{ \"type\": \"CHEDPP\" }";
+        const string notification = "{ \"type\": \"CHEDPP\", \"status\": \"SUBMITTED\" }";
         var content = new StringContent(notification, Encoding.UTF8, "application/json");
 
         // Act

@@ -952,6 +952,7 @@
       "description": "Have all commodities been matched with corresponding CDS declaration(s)"
     }
   },
+  "required": ["type", "status"],
   "definitions": {
     "InspectionRequired": {
       "type": "string",

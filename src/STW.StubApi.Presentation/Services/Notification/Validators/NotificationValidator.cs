@@ -1,21 +1,18 @@
 namespace STW.StubApi.Presentation.Services.Notification.Validators;
 
-using NJsonSchema;
-using NJsonSchema.Validation;
+using System.Text.Json.Nodes;
+using Json.Schema;
 
 public class NotificationValidator : INotificationValidator
 {
     private const string SchemaPath = "Services/Notification/Schemas/notification.json";
 
-    public async Task<bool> IsValidAsync(string notification)
+    public bool IsValid(string notification)
     {
-        var schema = await JsonSchema.FromFileAsync(SchemaPath);
+        var schema = JsonSchema.FromFile(SchemaPath);
+        var json = JsonNode.Parse(notification);
+        var result = schema.Evaluate(json);
 
-        var result = schema.Validate(notification, new JsonSchemaValidatorSettings
-        {
-            PropertyStringComparer = StringComparer.InvariantCultureIgnoreCase
-        });
-
-        return result.Count == 0;
+        return result.IsValid;
     }
 }

@@ -22,7 +22,7 @@ public class NotificationController : ControllerBase
     {
         var payload = await Request.Body.ReadAsStringAsync();
 
-        var isValid = await _notificationValidator.IsValidAsync(payload);
+        var isValid = _notificationValidator.IsValid(payload);
 
         if (!isValid)
         {

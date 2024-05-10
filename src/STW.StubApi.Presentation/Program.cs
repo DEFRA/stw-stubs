@@ -1,4 +1,4 @@
-using STW.StubApi.Presentation.Configuration;
+using STW.StubApi.Presentation.Extensions;
 using STW.StubApi.Presentation.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +9,7 @@ builder.Services
     .AddControllers();
 
 builder.Services
-    .RegisterServices()
+    .RegisterComponents()
     .AddHealthChecks();
 
 var app = builder.Build();
