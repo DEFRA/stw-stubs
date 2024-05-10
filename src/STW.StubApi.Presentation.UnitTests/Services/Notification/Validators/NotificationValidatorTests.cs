@@ -21,26 +21,26 @@ public class NotificationValidatorTests
     }
 
     [TestMethod]
-    public void IsValid_ReturnsTrue_WhenNotificationSatisfiesTheSchema()
+    public async Task IsValid_ReturnsTrue_WhenNotificationSatisfiesTheSchema()
     {
         // Arrange
         const string notification = "{ \"type\": \"CHEDPP\", \"status\": \"SUBMITTED\" }";
 
         // Act
-        var result = _systemUnderTest.IsValid(notification);
+        var result = await _systemUnderTest.IsValidAsync(notification);
 
         // Assert
         result.Should().BeTrue();
     }
 
     [TestMethod]
-    public void IsValid_ReturnsFalse_WhenNotificationDoesNotSatisfyTheSchema()
+    public async Task IsValid_ReturnsFalse_WhenNotificationDoesNotSatisfyTheSchema()
     {
         // Arrange
         const string notification = "{ \"type\": \"CHEDPP\", \"status\": \"unknown\" }";
 
         // Act
-        var result = _systemUnderTest.IsValid(notification);
+        var result = await _systemUnderTest.IsValidAsync(notification);
 
         // Assert
         result.Should().BeFalse();
