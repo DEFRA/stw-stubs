@@ -29,7 +29,7 @@ public class NotificationValidatorTests
     }
 
     [TestMethod]
-    public void IsValid_ReturnsTrue_WhenNotificationDoesNotSatisfyTheSchema()
+    public void IsValid_ReturnsFalse_WhenNotificationDoesNotSatisfyTheSchema()
     {
         // Arrange
         const string notification = "{ \"type\": \"CHEDPP\", \"partOne\": { \"CustomsReferenceNumber\": \"\" } }";

@@ -63,7 +63,7 @@ public class NotificationControllerTests
 
         // Assert
         result.Should().BeOfType<ObjectResult>();
-        result.As<ObjectResult>().Value!.ToString().Should().StartWith("DRAFT.GB.");
+        result.As<ObjectResult>().Value!.ToString().Should().StartWith("SUBMITTED.GB.");
         result.As<ObjectResult>().StatusCode.Should().Be((int)HttpStatusCode.Created);
     }
 }

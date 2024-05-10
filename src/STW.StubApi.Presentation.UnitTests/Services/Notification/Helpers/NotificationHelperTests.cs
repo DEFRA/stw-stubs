@@ -10,10 +10,10 @@ public class NotificationHelperTests
     [TestMethod]
     public void GenerateReferenceNumber_ReturnsExpected_WhenCalled()
     {
-        // Arrange / Act
+        // Act
         var result = NotificationHelper.GenerateReferenceNumber();
 
         // Assert
-        result.Should().MatchRegex("^DRAFT\\.GB\\.\\d{4}\\.1\\d{6}$");
+        result.Should().MatchRegex("^SUBMITTED\\.GB\\.\\d{4}\\.1\\d{6}$");
     }
 }

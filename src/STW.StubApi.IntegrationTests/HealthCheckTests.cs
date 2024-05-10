@@ -21,7 +21,7 @@ public class HealthCheckTests
     [TestMethod]
     public async Task HealthCheck_ReturnsOkStatusWithCorrectBody_WhenCalled()
     {
-        // Arrange / Act
+        // Act
         var response = await _httpClient.GetAsync(RequestUri);
 
         // Assert
