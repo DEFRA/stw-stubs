@@ -2,7 +2,7 @@ namespace STW.StubApi.Presentation.Extensions;
 
 using Services.Notification.Validators;
 
-public static class ServiceCollectionConfiguration
+public static class ServiceCollectionExtensions
 {
     public static IServiceCollection RegisterComponents(this IServiceCollection serviceCollection)
     {

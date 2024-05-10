@@ -1,6 +1,5 @@
 namespace STW.StubApi.Presentation.Services.Notification.Controllers;
 
-using System.Net;
 using Extensions;
 using Helpers;
 using Microsoft.AspNetCore.Mvc;
@@ -18,11 +17,12 @@ public class NotificationController : ControllerBase
     }
 
     [HttpPost]
+    [Consumes("application/json")]
     public async Task<IActionResult> CreateNotification()
     {
-        var payload = await Request.Body.ReadAsStringAsync();
+        var notification = await Request.Body.ReadAsStringAsync();
 
-        var isValid = _notificationValidator.IsValid(payload);
+        var isValid = _notificationValidator.IsValid(notification);
 
         if (!isValid)
         {
@@ -31,6 +31,6 @@ public class NotificationController : ControllerBase
 
         var referenceNumber = NotificationHelper.GenerateReferenceNumber();
 
-        return StatusCode((int)HttpStatusCode.Created, referenceNumber);
+        return StatusCode(StatusCodes.Status201Created, referenceNumber);
     }
 }

@@ -1,5 +1,6 @@
 using STW.StubApi.Presentation.Extensions;
 using STW.StubApi.Presentation.HealthChecks;
+using STW.StubApi.Presentation.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 
 app.UseHttpsRedirection();
 

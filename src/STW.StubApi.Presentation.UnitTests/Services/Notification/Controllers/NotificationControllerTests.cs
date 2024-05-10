@@ -1,6 +1,5 @@
 namespace STW.StubApi.Presentation.UnitTests.Services.Notification.Controllers;
 
-using System.Net;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -47,7 +46,7 @@ public class NotificationControllerTests
 
         // Assert
         result.Should().BeOfType<BadRequestResult>();
-        result.As<BadRequestResult>().StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+        result.As<BadRequestResult>().StatusCode.Should().Be(StatusCodes.Status400BadRequest);
     }
 
     [TestMethod]
@@ -64,6 +63,6 @@ public class NotificationControllerTests
         // Assert
         result.Should().BeOfType<ObjectResult>();
         result.As<ObjectResult>().Value!.ToString().Should().StartWith("SUBMITTED.GB.");
-        result.As<ObjectResult>().StatusCode.Should().Be((int)HttpStatusCode.Created);
+        result.As<ObjectResult>().StatusCode.Should().Be(StatusCodes.Status201Created);
     }
 }

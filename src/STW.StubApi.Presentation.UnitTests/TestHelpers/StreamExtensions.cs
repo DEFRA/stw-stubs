@@ -1,4 +1,4 @@
-namespace STW.StubApi.Presentation.Extensions;
+namespace STW.StubApi.Presentation.UnitTests.TestHelpers;
 
 public static class StreamExtensions
 {
