@@ -38,8 +38,8 @@ public class NotificationControllerTests
     {
         // Arrange
         _notificationValidatorMock
-            .Setup(x => x.IsValidAsync(It.IsAny<string>()))
-            .ReturnsAsync(false);
+            .Setup(x => x.IsValid(It.IsAny<string>()))
+            .Returns(false);
 
         // Act
         var result = await _systemUnderTest.CreateNotification();
@@ -54,8 +54,8 @@ public class NotificationControllerTests
     {
         // Arrange
         _notificationValidatorMock
-            .Setup(x => x.IsValidAsync(It.IsAny<string>()))
-            .ReturnsAsync(true);
+            .Setup(x => x.IsValid(It.IsAny<string>()))
+            .Returns(true);
 
         // Act
         var result = await _systemUnderTest.CreateNotification();
