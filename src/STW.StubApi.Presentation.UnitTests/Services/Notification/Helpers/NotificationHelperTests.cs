@@ -8,12 +8,15 @@ using Presentation.Services.Notification.Helpers;
 public class NotificationHelperTests
 {
     [TestMethod]
-    public void GenerateReferenceNumber_ReturnsExpected_WhenCalled()
+    public void GenerateReferenceNumber_ReturnsExpected_WhenCalledWithCertificateType()
     {
+        // Arrange
+        const string certificateType = "CHEDPP";
+
         // Act
-        var result = NotificationHelper.GenerateReferenceNumber();
+        var result = NotificationHelper.GenerateReferenceNumber(certificateType);
 
         // Assert
-        result.Should().MatchRegex("^SUBMITTED\\.GB\\.\\d{4}\\.1\\d{6}$");
+        result.Should().MatchRegex("^CHEDPP\\.GB\\.\\d{4}\\.1\\d{6}$");
     }
 }

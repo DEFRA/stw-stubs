@@ -45,6 +45,6 @@ public class CreateNotificationTests
         response.StatusCode.Should().Be(HttpStatusCode.Created);
 
         var responseBody = await response.Content.ReadAsStringAsync();
-        responseBody.Should().MatchRegex("^SUBMITTED\\.GB\\.\\d{4}\\.1\\d{6}$");
+        responseBody.Should().MatchRegex("^CHEDPP\\.GB\\.\\d{4}\\.1\\d{6}$");
     }
 }

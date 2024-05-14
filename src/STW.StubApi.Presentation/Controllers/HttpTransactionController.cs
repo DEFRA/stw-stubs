@@ -16,7 +16,7 @@ public class HttpTransactionController : ControllerBase
         _dbContext = dbContext;
     }
 
-    [HttpGet("{id:guid}")]
+    [HttpGet("{correlationId:guid}")]
     [Produces(MediaTypeNames.Application.Json)]
     public async Task<IActionResult> GetByCorrelationId(Guid correlationId)
     {

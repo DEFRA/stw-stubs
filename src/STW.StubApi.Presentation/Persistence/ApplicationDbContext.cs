@@ -10,5 +10,5 @@ public class ApplicationDbContext : DbContext
     {
     }
 
-    public DbSet<HttpTransaction> HttpTransactions { get; set; }
+    public virtual DbSet<HttpTransaction> HttpTransactions { get; set; }
 }
