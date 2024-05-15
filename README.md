@@ -7,6 +7,18 @@ The Stub API is a .NET service designed to simulate responses from different ser
 
 You can either run the application directly on your local machine or via Docker.
 
+### Database
+
+#### In memory
+
+Setting the environment variable `ASPNETCORE_ENVIRONMENT` to `Development` will use an in-memory database.
+
+#### SQL
+
+Setting the environment variable `ASPNETCORE_ENVIRONMENT` to anything other than `Development` will use a SQL Database.
+
+The app setting `ConnectionStrings__StubApiDatabase` will need set with a SQL Database connection string.
+
 ### Running via Docker
 
 #### Prerequisites
