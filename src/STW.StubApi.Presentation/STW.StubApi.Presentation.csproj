@@ -29,8 +29,4 @@
     <ItemGroup>
         <InternalsVisibleTo Include="STW.StubApi.IntegrationTests"/>
     </ItemGroup>
-    
-    <ItemGroup>
-      <Folder Include="Persistence\Migrations\" />
-    </ItemGroup>
 </Project>
