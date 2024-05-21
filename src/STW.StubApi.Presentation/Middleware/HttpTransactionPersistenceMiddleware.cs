@@ -24,6 +24,7 @@ public class HttpTransactionPersistenceMiddleware
             RequestTimestamp = DateTime.Now,
             CorrelationId = GetCorrelationIdHeader(request.Headers),
             RequestMethod = request.Method,
+            RequestPath = request.Path,
             RequestBody = await GetAndResetRequestBodyAsync(request)
         };
 

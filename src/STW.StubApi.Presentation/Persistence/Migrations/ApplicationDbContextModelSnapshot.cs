@@ -34,6 +34,10 @@ namespace STW.StubApi.Presentation.Migrations
                     b.Property<string>("RequestBody")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+                    
+                    b.Property<string>("RequestPath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RequestMethod")
                         .IsRequired()

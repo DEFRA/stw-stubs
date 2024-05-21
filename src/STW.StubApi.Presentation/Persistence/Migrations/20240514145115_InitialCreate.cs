@@ -18,6 +18,7 @@ namespace STW.StubApi.Presentation.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CorrelationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     RequestBody = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RequestPath = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RequestMethod = table.Column<string>(type: "nvarchar(6)", maxLength: 6, nullable: false),
                     RequestTimestamp = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ResponseStatusCode = table.Column<int>(type: "int", nullable: false),

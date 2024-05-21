@@ -10,6 +10,8 @@ public class HttpTransaction
 
     public Guid? CorrelationId { get; set; }
 
+    public string RequestPath { get; set; }
+
     public string RequestBody { get; set; }
 
     [MaxLength(6)]

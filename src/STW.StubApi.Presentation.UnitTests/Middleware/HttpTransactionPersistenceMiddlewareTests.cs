@@ -30,6 +30,7 @@ public class HttpTransactionPersistenceMiddlewareTests
         var correlationId = Guid.NewGuid();
         const string requestBody = "{ \"key\": \"value\" }";
         const string responseBody = "CHEDPP.GB.2024.100000";
+        const string requestPath = "/request-path";
         var requestBodyStream = new MemoryStream(Encoding.UTF8.GetBytes(requestBody));
 
         var httpContext = new DefaultHttpContext
@@ -39,6 +40,7 @@ public class HttpTransactionPersistenceMiddlewareTests
                 Body = requestBodyStream,
                 ContentLength = requestBodyStream.Length,
                 Method = HttpMethods.Post,
+                Path = requestPath,
                 Headers = { { "X-STW-CorrelationId", correlationId.ToString() } }
             }
         };
@@ -60,6 +62,7 @@ public class HttpTransactionPersistenceMiddlewareTests
                     a => a.CorrelationId == correlationId
                          && a.RequestBody == requestBody
                          && a.RequestMethod == HttpMethods.Post
+                         && a.RequestPath == requestPath
                          && a.ResponseBody == responseBody
                          && a.ResponseStatusCode == StatusCodes.Status201Created),
                 CancellationToken.None),
