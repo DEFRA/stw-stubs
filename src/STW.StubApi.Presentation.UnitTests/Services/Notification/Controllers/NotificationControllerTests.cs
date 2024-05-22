@@ -1,5 +1,6 @@
 namespace STW.StubApi.Presentation.UnitTests.Services.Notification.Controllers;
 
+using System.Text.Json.Nodes;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,31 +19,19 @@ public class NotificationControllerTests
     public void TestInitialize()
     {
         _notificationValidatorMock = new Mock<INotificationValidator>();
-        _systemUnderTest = new NotificationController(_notificationValidatorMock.Object)
-        {
-            ControllerContext = new ControllerContext
-            {
-                HttpContext = new DefaultHttpContext
-                {
-                    Request =
-                    {
-                        Body = new MemoryStream("{}"u8.ToArray())
-                    }
-                }
-            }
-        };
+        _systemUnderTest = new NotificationController(_notificationValidatorMock.Object);
     }
 
     [TestMethod]
-    public async Task CreateNotification_ReturnsBadRequest_WhenNotificationIsNotValid()
+    public void CreateNotification_ReturnsBadRequest_WhenNotificationIsNotValid()
     {
         // Arrange
         _notificationValidatorMock
-            .Setup(x => x.IsValid(It.IsAny<string>()))
+            .Setup(x => x.IsValid(It.IsAny<JsonNode>()))
             .Returns(false);
 
         // Act
-        var result = await _systemUnderTest.CreateNotification();
+        var result = _systemUnderTest.CreateNotification(It.IsAny<JsonNode>());
 
         // Assert
         result.Should().BeOfType<BadRequestResult>();
@@ -50,19 +39,21 @@ public class NotificationControllerTests
     }
 
     [TestMethod]
-    public async Task CreateNotification_ReturnsCreatedWithReferenceNumber_WhenNotificationIsValid()
+    public void CreateNotification_ReturnsCreatedWithReferenceNumber_WhenNotificationIsValid()
     {
         // Arrange
         _notificationValidatorMock
-            .Setup(x => x.IsValid(It.IsAny<string>()))
+            .Setup(x => x.IsValid(It.IsAny<JsonNode>()))
             .Returns(true);
 
+        var notification = JsonNode.Parse("{ \"type\":  \"CHEDPP\" }");
+
         // Act
-        var result = await _systemUnderTest.CreateNotification();
+        var result = _systemUnderTest.CreateNotification(notification);
 
         // Assert
         result.Should().BeOfType<ObjectResult>();
-        result.As<ObjectResult>().Value!.ToString().Should().StartWith("SUBMITTED.GB.");
+        result.As<ObjectResult>().Value!.ToString().Should().StartWith("CHEDPP.GB.");
         result.As<ObjectResult>().StatusCode.Should().Be(StatusCodes.Status201Created);
     }
 }
