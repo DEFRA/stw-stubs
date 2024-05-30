@@ -30,5 +30,7 @@ public class BcpSearchResultDto
         public string Name { get; init; }
 
         public string Code { get; init; }
+
+        public bool Suspended { get; init; } = false;
     }
 }

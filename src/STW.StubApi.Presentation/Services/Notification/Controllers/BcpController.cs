@@ -7,32 +7,37 @@ using Models;
 [Route("bcps")]
 public class BcpController
 {
+    private static readonly List<BcpSearchResultDto.BcpDto> Bcps =
+    [
+        new BcpSearchResultDto.BcpDto
+        {
+            Id = 1,
+            Name = "Belfast Airport",
+            Code = "GBBEL1",
+        },
+        new BcpSearchResultDto.BcpDto
+        {
+            Id = 49,
+            Name = "Manchester Airport",
+            Code = "GBMNC1",
+            Suspended = true,
+        },
+    ];
+
     [HttpGet("search")]
     [Consumes("application/json")]
-    public ActionResult<BcpSearchResultDto> Search([FromQuery] string code, [FromQuery] string type)
+    public ActionResult<BcpSearchResultDto> Search([FromQuery] string code)
     {
-        List<BcpSearchResultDto.BcpDto> bcps = code == "GBBEL1"
-            ?
-            [
-                new BcpSearchResultDto.BcpDto
-                {
-                    Id = 1,
-                    Name = $"{code} name",
-                    Code = code,
-                },
-            ]
-            : [];
-        return new BcpSearchResultDto()
+        return new BcpSearchResultDto
         {
             Page = 1,
             Elements = 25,
             TotalPages = 1,
-            SearchParameters = new BcpSearchResultDto.SearchParametersDto()
+            SearchParameters = new BcpSearchResultDto.SearchParametersDto
             {
                 Code = code,
-                Type = type,
             },
-            Bcps = bcps,
+            Bcps = Bcps.FindAll(bcp => bcp.Code == code),
         };
     }
 }
