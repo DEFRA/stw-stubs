@@ -18,7 +18,7 @@ public class CreateNotificationTests
     }
 
     [TestMethod]
-    public async Task CreateNotifications_ReturnsBadRequestStatus_WhenNotificationIsNotValid()
+    public async Task CreateNotification_ReturnsBadRequestStatus_WhenNotificationIsNotValid()
     {
         // Arrange
         const string notification = "{ \"type\": \"Unknown\" }";
@@ -32,7 +32,7 @@ public class CreateNotificationTests
     }
 
     [TestMethod]
-    public async Task CreateNotifications_ReturnsCreatedStatusWithReferenceNumber_WhenNotificationIsValid()
+    public async Task CreateNotification_ReturnsCreatedStatusWithReferenceNumber_WhenNotificationIsValid()
     {
         // Arrange
         const string notification = "{ \"type\": \"CHEDPP\", \"status\": \"SUBMITTED\" }";
