@@ -26,7 +26,7 @@ public class BcpController
 
     [HttpGet("search")]
     [Consumes("application/json")]
-    public ActionResult<BcpSearchResultDto> Search([FromQuery] string code)
+    public BcpSearchResultDto Search([FromQuery] string code)
     {
         return new BcpSearchResultDto
         {
