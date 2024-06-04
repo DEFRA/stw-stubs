@@ -1,4 +1,4 @@
-namespace STW.StubApi.Presentation.Services.Notification.Controllers;
+namespace STW.StubApi.Presentation.Services.Bcp;
 
 using Microsoft.AspNetCore.Mvc;
 using Models;

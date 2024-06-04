@@ -31,6 +31,6 @@ public class BcpSearchResultDto
 
         public string Code { get; init; }
 
-        public bool Suspended { get; init; } = false;
+        public bool Suspended { get; init; }
     }
 }
