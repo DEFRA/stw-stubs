@@ -1,10 +1,7 @@
 namespace STW.StubApi.Presentation.UnitTests.Services.ApprovedEstablishment.Controllers;
 
 using FluentAssertions;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Models;
 using Presentation.Services.ApprovedEstablishment.Controllers;
 using Presentation.Services.ApprovedEstablishment.Models;
 
@@ -20,17 +17,16 @@ public class ApprovedEstablishmentControllerTests
     }
 
     [TestMethod]
-    public void Search_ReturnsCorrectResponse_WhenCalled()
+    public void Search_ReturnsCorrectPageImpl()
     {
         // Arrange
         var searchQuery = new SearchQuery();
 
         // Act
-        var result = _systemUnderTest.Search(searchQuery) as OkObjectResult;
+        var result = _systemUnderTest.Search(searchQuery);
 
         // Assert
-        result!.StatusCode.Should().Be(StatusCodes.Status200OK);
-        result.Value.As<PageImpl<ApprovedEstablishment>>().Content.Should().HaveCount(1);
-        result.Value.As<PageImpl<ApprovedEstablishment>>().TotalElements.Should().Be(1);
+        result.Content.Should().HaveCount(1);
+        result.TotalElements.Should().Be(1);
     }
 }

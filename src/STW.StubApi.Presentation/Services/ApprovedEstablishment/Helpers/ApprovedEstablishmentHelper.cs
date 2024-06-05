@@ -5,9 +5,25 @@ using Presentation.Models;
 
 public static class ApprovedEstablishmentHelper
 {
+    private static readonly List<ApprovedEstablishment> ApprovedEstablishments = new List<ApprovedEstablishment>
+    {
+        new ApprovedEstablishment
+        {
+            Id = "34f8ac69-1dd7-4e82-bacc-50d1560e3bce",
+            ApprovalNumber = "2318367",
+            Country = "United States of America",
+            CountryCode = "US",
+            ActivitiesLegend = "Processing Plant",
+            Section = "Section 12",
+            CompanyName = "Ole Biloxi Fish and Oyster Co.",
+            City = "Unnao",
+            Region = "Uttar Pradesh"
+        }
+    };
+
     public static PageImpl<ApprovedEstablishment> Search(SearchQuery searchQuery)
     {
-        var query = Fixtures.ApprovedEstablishments.AsQueryable();
+        var query = ApprovedEstablishments.AsQueryable();
 
         if (searchQuery.ApprovalNumber is not null)
         {
