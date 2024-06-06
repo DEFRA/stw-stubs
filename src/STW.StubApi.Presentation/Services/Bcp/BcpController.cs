@@ -5,7 +5,7 @@ using Models;
 
 [ApiController]
 [Route("bcps")]
-public class BcpController
+public class BcpController : ControllerBase
 {
     private static readonly List<BcpSearchResultDto.BcpDto> Bcps =
     [
