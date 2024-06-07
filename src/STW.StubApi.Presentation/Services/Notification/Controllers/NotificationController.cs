@@ -1,5 +1,6 @@
 namespace STW.StubApi.Presentation.Services.Notification.Controllers;
 
+using System.Net.Mime;
 using System.Text.Json.Nodes;
 using Helpers;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +18,7 @@ public class NotificationController : ControllerBase
     }
 
     [HttpPost]
-    [Consumes("application/json")]
+    [Consumes(MediaTypeNames.Application.Json)]
     public IActionResult CreateNotification([FromBody] JsonNode? notification)
     {
         var isValid = _notificationValidator.IsValid(notification);
