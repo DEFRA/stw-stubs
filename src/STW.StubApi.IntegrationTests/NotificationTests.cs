@@ -6,12 +6,12 @@ using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
-public class CreateNotificationTests
+public class NotificationTests
 {
     private const string RequestUri = "/notifications";
     private readonly HttpClient _httpClient;
 
-    public CreateNotificationTests()
+    public NotificationTests()
     {
         var factory = new StubApiWebApplicationFactory();
         _httpClient = factory.CreateClient();
