@@ -6,5 +6,5 @@ public class CommodityConfiguration
 
     public bool RequireTestAndTrail { get; init; }
 
-    public bool RequiresFinishedAndPropagated { get; init; }
+    public bool RequiresFinishedOrPropagated { get; init; }
 }

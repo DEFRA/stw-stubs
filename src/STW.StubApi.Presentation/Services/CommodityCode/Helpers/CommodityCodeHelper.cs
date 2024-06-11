@@ -9,13 +9,13 @@ public static class CommodityCodeHelper
         new CommodityConfiguration
         {
             CommodityCode = "0808108090",
-            RequiresFinishedAndPropagated = false,
+            RequiresFinishedOrPropagated = false,
             RequireTestAndTrail = false
         },
         new CommodityConfiguration
         {
             CommodityCode = "06011010",
-            RequiresFinishedAndPropagated = true,
+            RequiresFinishedOrPropagated = true,
             RequireTestAndTrail = false
         }
     };
