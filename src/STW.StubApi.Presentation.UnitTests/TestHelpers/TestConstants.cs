@@ -8,4 +8,9 @@ public static class TestConstants
     public const string ApprovedEstablishmentActivitiesLegend = "Processing Plant";
     public const string ApprovedEstablishmentSection = "Section 12";
     public const string NonMatchingString = "XXXXXXXX";
+    public const string CvedpCommodityCode = "040390";
+    public const string ChedppCommodityCode = "0808108090";
+    public const string EppoCode = "MABSZ";
+    public const string SpeciesName = "apple tree (ornamental)";
+    public const string Cvedp = "cvedp";
 }
