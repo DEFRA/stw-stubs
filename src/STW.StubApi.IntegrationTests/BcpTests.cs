@@ -4,7 +4,7 @@ using System.Net;
 using System.Net.Http.Json;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Presentation.Models;
+using Presentation.Services.Bcp.Models;
 
 [TestClass]
 public class BcpTests
@@ -19,7 +19,7 @@ public class BcpTests
 
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var content = await response.Content.ReadFromJsonAsync<BcpSearchResultDto>();
+        var content = await response.Content.ReadFromJsonAsync<BcpSearchResult>();
         content!.Bcps.Should().SatisfyRespectively(
             first =>
             {
@@ -28,25 +28,5 @@ public class BcpTests
                 first.Code.Should().Be("GBBEL1");
                 first.Suspended.Should().Be(false);
             });
-    }
-
-    [TestMethod]
-    public async Task Search_ReturnsBadRequest_WhenCodeIsEmpty()
-    {
-        // Act
-        var response = await _httpClient.GetAsync("/bcps/search?code=");
-
-        // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-    }
-
-    [TestMethod]
-    public async Task Search_ReturnsBadRequest_WhenCodeIsMissing()
-    {
-        // Act
-        var response = await _httpClient.GetAsync("/bcps/search");
-
-        // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
 }

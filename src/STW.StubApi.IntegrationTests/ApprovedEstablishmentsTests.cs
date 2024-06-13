@@ -9,12 +9,12 @@ using Presentation.Models;
 using Presentation.Services.ApprovedEstablishment.Models;
 
 [TestClass]
-public class SearchApprovedEstablishmentsTests
+public class ApprovedEstablishmentsTests
 {
     private const string RequestUri = "/approved-establishment/search";
     private readonly HttpClient _httpClient;
 
-    public SearchApprovedEstablishmentsTests()
+    public ApprovedEstablishmentsTests()
     {
         var factory = new StubApiWebApplicationFactory();
         _httpClient = factory.CreateClient();
