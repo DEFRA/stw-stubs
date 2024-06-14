@@ -6,7 +6,7 @@ public static class FieldConfigHelper
 {
     public static FieldConfigDto GetFieldConfigDto(string certType, string commodityCode)
     {
-        var data = LoadFieldConfigDataFromFile(string.Equals(commodityCode, "03061699") ? "fieldConfigData.json" : "defaultFieldConfigData.json");
+        var data = LoadFieldConfigDataFromFile(commodityCode == "03061699" ? "fieldConfigData.json" : "defaultFieldConfigData.json");
 
         return new FieldConfigDto
         {

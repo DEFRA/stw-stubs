@@ -8,7 +8,7 @@ using Models;
 [Route("configurations")]
 public class FieldConfigController : ControllerBase
 {
-    [HttpGet("/v2/{certType}-{commodityCode}")]
+    [HttpGet("v2/{certType}-{commodityCode}")]
     public FieldConfigDto GetWithOptionalComplementName(string certType, string commodityCode)
     {
         return FieldConfigHelper.GetFieldConfigDto(certType, commodityCode);
