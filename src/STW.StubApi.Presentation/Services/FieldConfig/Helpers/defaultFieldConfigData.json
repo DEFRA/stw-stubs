@@ -1,0 +1,437 @@
+{
+  "commodity_code": "00",
+  "complement_name": "",
+  "document_type": "imp",
+  "pages": [
+    {
+      "Consignment": {
+        "sections": [
+          {
+            "components": [
+              {
+                "component_type": "text",
+                "editable": true,
+                "id": "local-reference-number",
+                "label": "Local Reference Number",
+                "name": "localReferenceNumber",
+                "value": "",
+                "visible": true
+              }
+            ],
+            "name": "unnamed"
+          }
+        ],
+        "part": "one"
+      },
+      "Transport": {
+        "sections": [
+          {
+            "components": [
+              {
+                "component_type": "text",
+                "editable": true,
+                "id": "port-of-entry",
+                "label": "Port of entry",
+                "name": "portOfEntry",
+                "value": "",
+                "visible": true
+              },
+              {
+                "component_type": "text",
+                "editable": true,
+                "id": "port-of-exit",
+                "label": "Port of exit",
+                "name": "portOfExit",
+                "value": "",
+                "visible": true
+              },
+              {
+                "component_type": "text",
+                "editable": true,
+                "id": "port-of-exit-date",
+                "label": "Port of exit date",
+                "name": "portOfExitDate",
+                "value": "",
+                "visible": true
+              }
+            ],
+            "name": "unnamed"
+          }
+        ],
+        "part": "one"
+      },
+      "PurposeOfMovement": {
+        "sections": [
+          {
+            "components": [
+              {
+                "component_type": "select",
+                "editable": true,
+                "id": "purpose-select",
+                "label": "Specify the reason for the movement of this animal or product",
+                "name": "purposeSelect",
+                "value": "notset",
+                "options": [
+                  {
+                    "value": "",
+                    "text": "Please choose"
+                  },
+                  {
+                    "value": "Animal feeding stuff",
+                    "text": "Animal feeding stuff"
+                  },
+                  {
+                    "value": "Artificial reproduction",
+                    "text": "Artificial reproduction"
+                  },
+                  {
+                    "value": "Breeding",
+                    "text": "Breeding"
+                  },
+                  {
+                    "value": "Commercial sale",
+                    "text": "Commercial sale"
+                  },
+                  {
+                    "value": "Fattening",
+                    "text": "Fattening"
+                  },
+                  {
+                    "value": "Game restocking",
+                    "text": "Game restocking"
+                  },
+                  {
+                    "value": "Human consumption",
+                    "text": "Human consumption"
+                  },
+                  {
+                    "value": "Technical/Pharmaceutical use",
+                    "text": "Technical/Pharmaceutical use"
+                  },
+                  {
+                    "value": "Production",
+                    "text": "Production"
+                  },
+                  {
+                    "value": "Racing/Competition",
+                    "text": "Racing/Competition"
+                  },
+                  {
+                    "value": "Registered equidae",
+                    "text": "Registered equidae"
+                  },
+                  {
+                    "value": "Rejected or Returned consignment",
+                    "text": "Rejected or Returned consignment"
+                  },
+                  {
+                    "value": "Rescue/Rehoming",
+                    "text": "Rescue/Rehoming"
+                  },
+                  {
+                    "value": "Research",
+                    "text": "Research"
+                  },
+                  {
+                    "value": "Slaughter",
+                    "text": "Slaughter"
+                  },
+                  {
+                    "value": "Transit",
+                    "text": "Transit"
+                  },
+                  {
+                    "value": "Zoo/Collection",
+                    "text": "Zoo/Collection"
+                  },
+                  {
+                    "value": "Other",
+                    "text": "Other"
+                  }
+                ],
+                "visible": true
+              }
+            ],
+            "name": "unnamed"
+          }
+        ],
+        "part": "one"
+      },
+      "ImportDateOfAnimalOrProductImport": {
+        "sections": [
+          {
+            "components": [
+              {
+                "id": "date-of-import",
+                "component_type": "text",
+                "editable": false,
+                "label": "Enter date",
+                "name": "dateOfImport",
+                "value": "",
+                "visible": true
+              }
+            ],
+            "name": "unnamed"
+          }
+        ],
+        "part": "one"
+      },
+      "HealthCertificateNumberForAnimalOrProduct": {
+        "sections": [
+          {
+            "components": [
+              {
+                "component_type": "radio_buttons",
+                "name": "is-health-certificate-number-known",
+                "values": [
+                  {
+                    "editable": true,
+                    "id": "health-certificate-number-known-yes",
+                    "name": "is-health-certificate-number-known",
+                    "selected": false,
+                    "label": "Yes",
+                    "value": "Yes",
+                    "visible": true
+                  },
+                  {
+                    "editable": true,
+                    "id": "is-health-certificate-number-known-no",
+                    "name": "is-health-certificate-number-known",
+                    "selected": false,
+                    "label": "No",
+                    "value": "No",
+                    "visible": true
+                  }
+                ]
+              },
+              {
+                "id": "health-certificate-number",
+                "component_type": "text",
+                "label": "Certificate number",
+                "visible": true,
+                "value": "",
+                "name": "health-certificate-number"
+              }
+            ],
+            "name": "unnamed"
+          }
+        ],
+        "part": "one"
+      },
+      "Destination": {
+        "sections": [
+          {
+            "components": [
+              {
+                "name": "importingForCharity",
+                "component_type": "radio_buttons",
+                "values": [
+                  {
+                    "editable": true,
+                    "id": "importing-for-charity-yes",
+                    "value": "Yes",
+                    "label": "Yes",
+                    "visible": true
+                  },
+                  {
+                    "editable": true,
+                    "id": "importing-for-charity-no",
+                    "value": "No",
+                    "label": "No",
+                    "visible": true
+                  }
+                ]
+              },
+              {
+                "name": "isThisThePlaceOfFinalDestination",
+                "component_type": "radio_buttons",
+                "values": [
+                  {
+                    "editable": true,
+                    "id": "place-of-final-destination-yes",
+                    "value": "Yes",
+                    "label": "Yes",
+                    "visible": true
+                  },
+                  {
+                    "editable": true,
+                    "id": "place-of-final-destination-no",
+                    "value": "No",
+                    "label": "No",
+                    "visible": true
+                  }
+                ]
+              }
+            ],
+            "name": "unnamed"
+          }
+        ],
+        "part": "one"
+      },
+      "TransportDetails": {
+        "sections": [
+          {
+            "name": "Place of origin",
+            "components": [
+              {
+                "component_type": "org_picker",
+                "element_id": "selectPlaceOfOrigin",
+                "select_link_id": "return selectBusiness('placeOfOrigin');"
+              }
+            ]
+          },
+          {
+            "name": "Charity's address",
+            "components": [
+              {
+                "component_type": "org_picker",
+                "element_id": "selectCharitysAddress",
+                "select_link_id": "return selectBusiness('charitysAddress');"
+              }
+            ]
+          },
+          {
+            "name": "Importer's address",
+            "components": [
+              {
+                "component_type": "org_picker",
+                "element_id": "a_selimp",
+                "select_link_id": "return selectBusiness('importer');"
+              }
+            ]
+          },
+          {
+            "name": "Place of destination",
+            "components": [
+              {
+                "component_type": "org_picker",
+                "element_id": "a_seldel",
+                "select_link_id": "return selectBusiness('delivery');"
+              }
+            ]
+          },
+          {
+            "name": "Permanent address",
+            "components": [
+              {
+                "component_type": "org_picker",
+                "element_id": "selectPermanentAddress",
+                "select_link_id": "return selectBusiness('permanentAddress');"
+              }
+            ]
+          },
+          {
+            "name": "Will the importer travel through any other countries?",
+            "components": [
+              {
+                "component_type": "radio_buttons",
+                "name": "importTravelThroughAnyOtherCountries",
+                "values": [
+                  {
+                    "editable": true,
+                    "id": "importTravelThroughAnyOtherCountriesYes",
+                    "value": "Yes",
+                    "visible": true,
+                    "label": "Yes"
+                  }
+                ]
+              },
+              {
+                "component_type": "select",
+                "editable": true,
+                "id": "a_tran0",
+                "name": "transit[0]",
+                "options": [],
+                "value": "notset",
+                "visible": true
+              }
+            ]
+          },
+          {
+            "components": [
+              {
+                "component_type": "radio_buttons",
+                "name": "importTravelThroughAnyOtherCountries",
+                "values": [
+                  {
+                    "editable": true,
+                    "id": "importTravelThroughAnyOtherCountriesNo",
+                    "value": "No",
+                    "label": "No",
+                    "visible": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "part": "one"
+      },
+      "CommodityQuantity": {
+        "sections": [
+          {
+            "components": [
+              {
+                "component_type": "text",
+                "editable": true,
+                "id": "quantity",
+                "label": "Quantity",
+                "name": "quantity",
+                "visible": true
+              }
+            ],
+            "name": "unnamed"
+          }
+        ],
+        "part": "one"
+      },
+      "Identifiers": {
+        "sections": [
+          {
+            "components": [
+              {
+                "component_type": "identifier_table",
+                "editable": false,
+                "id": "applicable-identifiers",
+                "label": "Identifiers",
+                "name": "identifiers",
+                "value": "notset",
+                "options": [
+                  {
+                    "label": "Identification details"
+                  },
+                  {
+                    "label": "Description"
+                  }
+                ],
+                "visible": true,
+                "displaySingleRow": true
+              }
+            ],
+            "name": "unnamed"
+          }
+        ],
+        "part": "one"
+      },
+      "TransporterAddress": {
+        "sections": [
+          {
+            "components": [
+              {
+                "component_type": "text",
+                "editable": false,
+                "id": "transporter-address",
+                "label": "Transporter Address",
+                "name": "transporter-address",
+                "value": true,
+                "visible": true
+              }
+            ],
+            "name": "unnamed"
+          }
+        ],
+        "part": "one"
+      }
+    }
+  ]
+}
